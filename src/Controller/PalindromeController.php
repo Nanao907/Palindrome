@@ -9,14 +9,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class PalindromeController extends AbstractController
 {
     #[Route('/', name: 'palindrome_check')]
-    public function index(Request $request): Response
+    public function paliCheck(Request $request): Response
     {
         $result = null;
         $input = $request->request->get('input');
 
         if ($input !== null) {
-            $normalizedInput = strtolower(preg_replace('/\W+/', '', $input));
-            $result = $normalizedInput === strrev($normalizedInput);
+            $palindromeCheck = strtolower(preg_replace('/\W+/', '', $input));
+            $result = $palindromeCheck === strrev($palindromeCheck);
         }
 
         return $this->render('palindrome.html.twig', [
