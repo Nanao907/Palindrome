@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Palindrome Checker</title>
+	</head>
+	<body>
+		<h1>Palindrome Checker</h1>
+		<form method="post">
+			<input type="text" name="input" value="{{ input|default('') }}" placeholder="Enter text">
+			<button type="submit">Check</button>
+		</form>
+
+		{% if result is not null %}
+			{% if result %}
+				<p>"{{ input }}" is a palindrome!</p>
+			{% else %}
+				<p>"{{ input }}" is not a palindrome.</p>
+			{% endif %}
+		{% endif %}
+	</body>
+</html>
